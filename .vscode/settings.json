@@ -1,8 +1,0 @@
-{
-    "files.associations": {
-        "stdio.h": "c",
-        "test": "c",
-        "gsl_sf.h": "c",
-        "gsl_sf_bessel.h": "c"
-    }
-}
