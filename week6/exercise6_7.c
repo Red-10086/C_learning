@@ -11,7 +11,5 @@ int main(void)
 
 void hello(void)
 {
-    printf("hello");
-
-
+    printf("你好！\n");
 }
