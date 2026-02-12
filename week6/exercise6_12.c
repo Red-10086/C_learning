@@ -51,6 +51,7 @@ void Mat_print(int a, int b, int m[a][b])
     }
     printf("}\n");
 }
+
 void Mat_Mult(const int u[Four][Three], const int v[Three][Four], int w[Four][Four])
 {
     for(int i = 0; i < Four; i++)
