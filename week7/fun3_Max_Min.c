@@ -1,8 +1,6 @@
-int maxmin[2] = {0};//存储最高分和最低分的数组,索引0存储最高，索引1存储最低
+
 
 //arr1分数数组 n学生数量 arr2极值数组
-void find_max_min(const int arr1[], int n, int arr2[]);
-
 void find_max_min(const int arr1[], int n, int arr2[])
 {
     int max = arr1[0];
