@@ -1,3 +1,9 @@
+/* 
+编写rrotate函数，返回无符号整数x右移n位后的值
+unsigned rrotate(unsigned x, int n){codes}
+编写lrotate函数，返回无符号整数x左移n位后的值
+unsigned lrotate(unsigned x, int n){codes}
+ */
 #include <stdio.h>
 #include <limits.h>
 
@@ -30,7 +36,7 @@ int main(void)
         if(number > 0)
         {
             //如果左移会高位溢出或counts大于unsigned包含的位数
-            if((number > (UINT_MAX >> counts)) || (counts > byte_to_bit * sizeof(unsigned)))
+            if((number > (UINT_MAX >> counts)) || (counts >= byte_to_bit * sizeof(unsigned)))
             {
                 printf("溢出,请重试.\n");
                 continue;
@@ -74,8 +80,9 @@ void print_bits(unsigned x)
 {
     int i;
 
-    //自高位起,从左向右逐位输出二进制数.
-	for (i = byte_to_bit * sizeof(unsigned) - 1; i >= 0; i--)/* sizeof(unsigned)可以替换为int_bits() */
+    // 自高位起,从左向右逐位输出二进制数.
+    // sizeof(unsigned)可以替换为int_bits() 
+	for (i = byte_to_bit * sizeof(unsigned) - 1; i >= 0; i--)
     {
         //后缀U表示无符号整数,0U表示无符号整数0,1U表示无符号整数1.
         putchar(((x >> i) & 1U) ? '1' : '0');
