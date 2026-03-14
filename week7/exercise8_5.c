@@ -41,16 +41,16 @@ int main(void)
     switch(seas)
     {
         case Spring:
-            printf("%s推荐的菜品是%s", season_array[Spring], dish_array[Spring]);
+            printf("%s推荐的菜品是%s.", season_array[Spring], dish_array[Spring]);
             break;
         case Summer:
-            printf("%s推荐的菜品是%s", season_array[Summer], dish_array[Summer]);
+            printf("%s推荐的菜品是%s.", season_array[Summer], dish_array[Summer]);
             break;
         case Autumn:
-            printf("%s推荐的菜品是%s", season_array[Autumn], dish_array[Autumn]);
+            printf("%s推荐的菜品是%s.", season_array[Autumn], dish_array[Autumn]);
             break;
         case Winter:
-            printf("%s推荐的菜品是%s", season_array[Winter], dish_array[Winter]);
+            printf("%s推荐的菜品是%s.", season_array[Winter], dish_array[Winter]);
             break;
         default:
             printf("季节输入错误\n");
