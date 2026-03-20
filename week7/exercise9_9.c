@@ -40,7 +40,7 @@ void rev_string(char s[])/* 字符串原地调头 */
     //for(int i = 0; i <= length/2; i++) 
     //对一般数组原地调头可行,但是对字符串呢?答:会把'\0'包进去,不可行
 
-    for(int i = 0; i <= (length-1)/2; i++)/* s[length]此时一定为'\0',剔除. */
+    for(int i = 0; i <= (length-1)/2; i++)/* s[length]此时一定为'\0',剔除.length为奇数,中间值自交换,无伤大雅 */
     {
         tmp = s[i];
         s[i] = s[length -1 - i];/* 2倍中点坐标减i,得i关于中点的对称点 */
