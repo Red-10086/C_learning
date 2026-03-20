@@ -20,7 +20,7 @@ int main(void)
 
     result = str_chnum(str, c);
 
-    printf("字符串 \"%s\" 中,字符%c出现了%d次", str, c, result);
+    printf("字符串 \"%s\" 中,字符'%c'出现了%d次", str, c, result);
 
     return 0;
 }
@@ -30,7 +30,7 @@ int str_chnum(const char s[], int c)
     int index = 0;/* 下标 */
     int num = 0;/* 字符c的个数 */
 
-    while(s[index])/* 遍历字符串,到尾 ('\0') 即止 */
+    while(s[index] != '\0')/* 遍历字符串,到尾 ('\0') 即止 */
     {
         //index++;索引自增在前则下标0永远不会被检查,逻辑错误导致吞头
 
