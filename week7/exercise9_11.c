@@ -11,19 +11,53 @@
 #define row 10
 #define length 128
 
-/*--- 显示字符串数组 ---*/
-void put_strary(const char s[][6], int n)/* 必须指定第二维及更低维数组的长度,第一维省略以传递指针 */
-{
-	int i;
-	for (i = 0; i < n; i++)
-		printf("s[%d] = \"%s\"\n", i, s[i]);/* 打印第i+1行-下标i存储的字符串 */
-}
+
+void get_strary(const char s[][length], int r);/* 读取字符串数组 */
+void put_strary(const char s[][length], int r);/* 打印字符串数组 */
+int is_five_dollars(const char s[][length]);/* 判断是否是结束字符串 */
 
 int main(void)
 {
-	char cs[][6] = {"Turbo", "NA", "DOHC"};
-
-	put_strary(cs, 3);
-
+    char cs[row][length] = {{'\0'}};
+    
+	put_strary(cs, row);
+    
 	return 0;
+}
+
+void get_strary(const char s[][length], int r)
+{
+    for(int i = 0; i < r; i++)
+    {
+        printf("请输入字符串:\n");
+        scanf("%s", s[i]);
+
+        if(is_5$())
+        {
+            break;
+        }
+        else
+        {
+            continue;
+        }
+    }
+
+}
+
+
+int is_five_dollars(const char s[][length])/* 判断字符串是否是"$$$$$",是则返回1,否则返回0 */
+{
+    int rusult = 0;
+    int dollars = 0;
+    
+    for(int i = 0; s[][i] != '\0'; i++)
+    {
+        if(s[])
+    }
+    
+}
+
+void put_strary(const char s[][length], int r)
+{
+    
 }
