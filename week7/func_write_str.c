@@ -24,8 +24,20 @@ void write(char s[][arrlen], int n);/* n:数组总行数，作为安全上限 */
 int s_len(char s[][arrlen], int i);/* 字符串长度(不包括'\0') */
 int is_five_dollars(char s[][arrlen], int i);/* 二维字符数组s下标i对应字符串 */
 
+/*
+    逐行打印,共n行,直到打印完非空字符串或遇见"$$$$$"
+    write{
+        定义结束变量done
+        逐行遍历{
+            当前行是否是"$$$$$"? done = 1 : done = 0;
 
-void write(char s[][arrlen], int n)/* n:数组总行数，作为安全上限 */
+            若done == 1 break;
+
+            写当前行;
+        }
+    }
+*/
+void write(char s[][arrlen], int n)
 {
     for(int i = 0, done = 0; i < n; i++)
     {
@@ -36,7 +48,7 @@ void write(char s[][arrlen], int n)/* n:数组总行数，作为安全上限 */
             break;
         }
         
-        printf("%s", s[i]); /* 读 */
+        printf("%s", s[i]); /* 写 */
     }
 }
 

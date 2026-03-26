@@ -1,9 +1,28 @@
 /* 
-    练习9-11 编写一段程序,对代码清单9-12进行如下改写.
-        将字符串的个数3改为更大的数,将其值定义为对象式宏
-        将字符串的字符数改为128,将其制也定义为对象式宏
-        生成读取字符串数组的函数.和练习9-3一样,在读取到"$$$$$"后,停止读取操作
-        显示"$$$$$"前输入的所有字符串.
+    练习9-12 编写如下函数,将所接受的字符串函数中存储的n个字符串的字符逆向显示
+        void rev_string(char s[][128], int n){codes}
+    例如,若s中接受的是{"SEC", "ABC"},则将其更新为{"CES", "CBA"}.
+    
+    逻辑拆分:
+    main(){
+        读函数(read);
+        逆向并显示函数(rev_string);
+        return 0;
+    }
+
+    rev_string{
+        逆向函数(reverse);
+        显示函数(write);
+    }
+    reverse{
+        逐行遍历{
+            行内-取字符串长度(s_len);
+            行内-遍历字符串一半长度{
+                关于数组"中轴"对称,首尾交换一次
+            }
+        }
+    }
+    s_len/read/write{略}
 */
 
 #include <stdio.h>
@@ -13,20 +32,27 @@
 
 enum Numbers {five = 5};
 
+void rev_string(char s[][arrlen], int n);/* s共n行,调用write和reverse需要他们给传总行数信息*/
 void read(char s[][arrlen], int n);/* n:字符串数组的row,总行数 */
-void write(char s[][arrlen], int n);/* n:数组总行数，作为安全上限 */
+void write(char s[][arrlen], int n);/* 逐行写,直到遇见"$$$$$",或写完共n行 */
+void reverse(char s[][arrlen], int n);/* 逐行反转s[][],共n行 */
 int s_len(char s[][arrlen], int i);/* 字符串长度(不包括'\0') */
 int is_five_dollars(char s[][arrlen], int i);/* 二维字符数组s下标i对应字符串 */
 
 int main(void)
 {
-    char str[row][arrlen] = {{0}};
-
-    read(str, row);/* 读,直到遇见"$$$$$" */
-
-    write(str, row);/* 写,直到遇见"$$$$$" */
+    char str[row][arrlen];
+    
+    read(str, row);
+    rev_string(str, row);
 
     return 0;
+}
+
+void rev_string(char s[][arrlen], int n)
+{
+    reverse(s, n);
+    write(s, n);
 }
 
 void read(char s[][arrlen], int n)/* n:字符串数组的row,总行数 */
@@ -45,7 +71,8 @@ void read(char s[][arrlen], int n)/* n:字符串数组的row,总行数 */
     }
 }
 
-void write(char s[][arrlen], int n)/* n:数组总行数，作为安全上限 */
+
+void write(char s[][arrlen], int n)/* 逐行写 */
 {
     for(int i = 0, done = 0; i < n; i++)
     {
@@ -57,6 +84,23 @@ void write(char s[][arrlen], int n)/* n:数组总行数，作为安全上限 */
         }
         
         printf("%s\n", s[i]); /* 写 */
+    }
+}
+
+void reverse(char s[][arrlen], int n)/* 逐行反转s[][],共n行 */
+{
+    for(int i = 0; i < n; i++)/* 逐行遍历 */
+    {
+        int len = s_len(s, i);
+
+        for(int j = 0; j <= (len - 1) / 2; j++)/* 行内原地调头 */
+        {
+            int temp = 0;
+
+            temp            = s[i][j];
+            s[i][j]         = s[i][len-1-j];
+            s[i][len-1-j]   = temp;
+        }
     }
 }
 
