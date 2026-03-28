@@ -1,0 +1,92 @@
+前移:
+/* 枚举：一个月的 31 天 */
+enum month_days {
+    First_day = 1,    /* 1 日 */
+    Second_day,       /* 2 日 */
+    Third_day,        /* 3 日 */
+    Fourth_day,       /* 4 日 */
+    Fifth_day,        /* 5 日 */
+    Sixth_day,        /* 6 日 */
+    Seventh_day,      /* 7 日 */
+    Eighth_day,       /* 8 日 */
+    Ninth_day,        /* 9 日 */
+    Tenth_day,        /* 10 日 */
+    Eleventh_day,     /* 11 日 */
+    Twelfth_day,      /* 12 日 */
+    Thirteenth_day,   /* 13 日 */
+    Fourteenth_day,   /* 14 日 */
+    Fifteenth_day,    /* 15 日 */
+    Sixteenth_day,    /* 16 日 */
+    Seventeenth_day,  /* 17 日 */
+    Eighteenth_day,   /* 18 日 */
+    Nineteenth_day,   /* 19 日 */
+    Twentieth_day,    /* 20 日 */
+    Twenty_first_day, /* 21 日 */
+    Twenty_second_day,/* 22 日 */
+    Twenty_third_day, /* 23 日 */
+    Twenty_fourth_day,/* 24 日 */
+    Twenty_fifth_day, /* 25 日 */
+    Twenty_sixth_day, /* 26 日 */
+    Twenty_seventh_day,/* 27 日 */
+    Twenty_eighth_day,/* 28 日 */
+    Twenty_ninth_day, /* 29 日 */
+    Thirtieth_day,    /* 30 日 */
+    Thirty_first_day  /* 31 日 */
+};
+
+enum beyond_bound_state { downward = -1, false = 0, upward = 1 }
+
+decresement_date(int *y, int *m, int *d)
+{
+
+    while(1)
+    {
+        int day = *d;
+        day -= 1;
+
+        
+
+        if(day < lower_bound || day > up_bound )
+        {
+
+        }
+
+        
+    }
+}
+
+is_beyond_date_boundary(int *y, int *m, int *d)/* date越界判定 */
+{
+    int result = 0;
+    int lower_bound = First_day;
+    int up_bound = up_bound(y, m);
+
+    if(*d < lower_bound)
+}
+
+is_beyond_month_boundary(int *y, int *m, int *d)/* month越界判定 */
+//is_beyond_year_boundary(int *y, int *m, int *d)/* year越界判定 */
+
+up_bound(int *y, int *m)
+{
+    int result = 0;
+    enum month_type temp_type = indentify_month_type;
+
+    switch (temp_tpye){
+        case solar:
+            result = Thirty_first_day;
+            break;
+
+        case lunar:
+            result = Thirtieth_day;
+            break;
+        
+        case leap:
+            result = Twenty_ninth_day;
+            break;
+
+        case regular:
+            result = Twenty_eighth_day;
+            break;
+    }
+}
