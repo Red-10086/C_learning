@@ -20,12 +20,12 @@ enum Numbers {five = 5};
 
 // char str[row][arrlen] = {{0}};
 
-void write(char s[][arrlen], int n);/* n:字符串数组的row,总行数 */
+void read(char s[][arrlen], int n);/* n:字符串数组的row,总行数 */
 int s_len(char s[][arrlen], int i);/* 字符串长度(不包括'\0') */
 int is_five_dollars(char s[][arrlen], int i);/* 二维字符数组s下标i对应字符串 */
 
 
-void write(char s[][arrlen], int n)/* n:字符串数组的row,总行数 */
+void read(char s[][arrlen], int n)/* n:字符串数组的row,总行数 */
 {
     for(int i = 0, done = 0; i < n; i++)
     {
