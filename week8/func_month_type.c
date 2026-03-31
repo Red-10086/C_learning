@@ -8,9 +8,9 @@ enum month_types {solar, lunar, leap, regular};/* 大月,小月,闰二月,平二
 enum month_number {Jan = 1, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec,
                     January = 1, February, March, April, May, June, July, August, September, October, November, December };
 
-enum month_types identify_type(int *y, int *m);/* 判定月份类型 */
+enum month_types indentify_month_type(int *y, int *m);/* 判定月份类型 */
 
-enum month_types identify_type(int *y, int *m)/* 判定月份类型 */
+enum month_types indentify_month_type(int *y, int *m)/* 判定月份类型 */
 {
     enum month_types result = -1;
 

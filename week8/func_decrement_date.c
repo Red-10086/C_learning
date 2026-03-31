@@ -22,7 +22,7 @@ January = 1, February, March, April, May, June, July, August, September, October
 
 int is_leap_year(int *y);/* 判定:是闰年? */
 void decrement_date(int *y, int *m, int *d);/* 前移一日 */
-enum month_types identify_type(int *y, int *m);/* 判定月份类型 */
+enum month_types indentify_month_type(int *y, int *m);/* 判定月份类型 */
 
 void decrement_date(int *y, int *m, int *d)
 {
@@ -36,7 +36,7 @@ void decrement_date(int *y, int *m, int *d)
     {
         *m -= 1;/* 跨月 */
         
-        
+        m_type
 
     }
 
