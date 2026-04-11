@@ -17,8 +17,6 @@
     default: "其他类型" \
 )
 
-  
-
 int main(void)
 {
 	int i;
