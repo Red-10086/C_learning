@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-enum{Two = 2, Six = 6};
+enum Numbers {Two = 2, Six = 6};
 
 int main(void)
 {
