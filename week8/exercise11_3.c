@@ -59,7 +59,7 @@ int main(void)
 
     // ptr = tmp;
 
-    printf("复制后的字符串是:\"%s\"\n", str_copy(&str[0], &tmp[0]));
+    printf("复制后的字符串是:\"%s\"\n", str_copy(str, tmp));
     // printf("复制后的字符串是:\"%s\"\n", ptr);
 
     return 0;
