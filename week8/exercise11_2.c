@@ -37,24 +37,18 @@
             sizeof(p)/sizeof(p[0]),可以得到a中有几个char *p
 
 */
+
 #include <stdio.h>
 
 int main(void)
 {
-    int  i;
-    char a[][5] = {"LISP", "C", "Ada"};
-    char *p[]   = {"PAUL", "X", "MAC"};
-    int row_size_a = 0;
-    int row_size_p = 0;
+    char a[][5] = {"LISP", "C", "Ada"};/* 字符串的数组:   元素为字符型数组 */
+    char * p[]  = {"PAUL", "X", "MAC"};/* 字符型指针的数组:元素为字符型指针 */
 
-    row_size_a = sizeof(a) / sizeof(a[0]);
-    row_size_p = sizeof(p) / sizeof(p[0]);
+    int count_of_a = sizeof(a) / sizeof(a[0]);
+    int count_of_p = sizeof(p) / sizeof(p[0]);
 
-    for (i = 0; i < row_size_a; i++)
-            printf("a[%d] = \"%s\"\n", i, a[i]);
-
-    for (i = 0; i < row_size_p; i++)
-        printf("p[%d] = \"%s\"\n", i, p[i]);
+    /* codes */
 
     return 0;
 }
