@@ -26,7 +26,7 @@ int main(void)
     // tmp = *str_chr(str, ch);危险,函数可能返回NULL,对NULL解引用立刻就会崩溃
     const char *chpointer = NULL;/* 指向字符串中某字符的指针 */
     
-    chpointer = str_chr(str, ch);
+    chpointer = str_chr(str, ch);/* 必须用const char*类型来接收 */
 
     if(chpointer != NULL)/* 避免对空指针解引用 */
     {
@@ -50,6 +50,10 @@ char *str_chr(const char *s, int c)
     {
         if(*s == c)/* 查找,找到即定向并退出-以先出现的为准 */
         {
+            /* 危险:将承诺为const的内存区域的坐标赋给了"可读可写"的普通指针 */
+            /* 但题目要求我返回char *类型,没有办法,将const char*类型直接返回
+            也是隐式转换,所以只能先显式转换,在调用时直接使用const char*类型接收来
+            "打补丁" */
             result = (char *)s;
             break;
         }

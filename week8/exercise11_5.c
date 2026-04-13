@@ -11,6 +11,7 @@ int str_chnum(const char *s, int c);
 
 int main(void)
 {
+    printf("“strchr 返回 char 却接受 const char，是 C 语言对历史的妥协。”\n");
     char *s = "Onion";
     char tmp[128] = {0};
     char ch = 0;
