@@ -20,8 +20,8 @@
 		}
 	}
 
-	思路:while(*s++){if(is_lower(s)) *s -= 32; }
-		while(*s++){if(is_uper(s)) *s += 32; }
+	思路:while(*s++){if(is_lower(s)) *s -= 32; }//注意:不是26!!!
+		while(*s++){if(is_uper(s)) *s += 32; }//注意:不是26!
 */
 
 #include <stdio.h>
