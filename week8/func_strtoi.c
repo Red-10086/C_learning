@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
+#include "strto.h"
 
 enum signs { Unsigned_Number, Positive, Negative };
 
@@ -9,19 +10,19 @@ int strtoi(const char *nptr);
 /* ptr_to_first_num指向+或-符号后的第一个数字,只适用于处理纯数字字符串 */
 int str_to_unsigned(const char *ptr_to_first_num);
 
-int main(void)
-{
-    int Number = 0;
-    char str[128] = {0};
+// int main(void)
+// {
+//     int Number = 0;
+//     char str[128] = {0};
 
-    printf("请输入整数:\n");
-    scanf(" %s", str);
+//     printf("请输入整数:\n");
+//     scanf(" %s", str);
 
-    Number = strtoi(str);
-    printf("%d", Number);
+//     Number = strtoi(str);
+//     printf("%d", Number);
 
-    return 0;
-}
+//     return 0;
+// }
 
 int strtoi(const char *nptr)
 {
@@ -80,10 +81,14 @@ int strtoi(const char *nptr)
 /* ptr_to_first_num指向+或-符号后的第一个数字,只适用于处理纯数字字符串 */
 int str_to_unsigned(const char *ptr_to_first_num)
 {
-    int Number = 0;                 // 字符串对应整数
-    int len = strlen(ptr_to_first_num);         // 不含符号位的string length
+    int Number = 0;                         // 字符串对应整数
+    int len = strlen(ptr_to_first_num);     // 不含+或-符号的string length
+    
+    const char *begin = ptr_to_first_num;       // 首个数字字符坐标,自此始.
+    const char *end = ptr_to_first_num + len;   // 末元素后一位,不可及
+    const char *p_traverse = NULL ;             // 用于遍历字符串的指针
 
-    while(*ptr_to_first_num != '\0')
+    for(p_traverse = begin; p_traverse < end; p_traverse++)
     {
         /* 累加:例如,对于"1234":
             指向'1': Number = 0 * 10 + '1'-'0' = 1
@@ -92,7 +97,7 @@ int str_to_unsigned(const char *ptr_to_first_num)
             指向'4': Number = 123 * 10 + '4' - '0' = 1234 
             指向'\0':结束
         */
-        Number = Number * 10 + (*ptr_to_first_num - '0');
+        Number = Number * 10 + (*p_traverse - '0');
     }
 
     return Number;

@@ -35,39 +35,21 @@
 */
 
 #include <stdio.h>
-#include <string.h>
-#include <math.h>
-
-int strtoi(const char *nptr);
-long strtoL(const char *nptr);
-double strtof(const char *nptr);
+#include "strto.h"
 
 int main(void)
 {
     char str[128];
+    printf("请输入整数:\n");
     scanf(" %s", str);
-    printf("%d", strtoi(str));
+    printf("%d\n", strtoi(str));
+    printf("请输入整数:\n");
+    scanf(" %s", str);
+    printf("%lld\n", strtoLL(str));
+    printf("请输入浮点数:\n");
+    scanf(" %s", str);
+    printf("%lf\n", strtof(str));
+    
 
     return 0;
 }
-
-int str_to_unsigned(const char *nptr)
-{
-    int Number = 0;                 // 字符串对应整数
-    int len = strlen(nptr);         // 不含符号位的string length
-
-    for(int i = 0; i < len ; i++)
-    {
-        /* 数位从左至右:i从0到len-1,位权重从高到低:10的len-1次方到0次方 */
-        /* 特别地,如果这个字符串表示的数没有超过整数范围,那么它每一数位
-        的权重:pow(10.0,len-i-1)也不会,int转换不会导致越界 */
-        Number = Number + (*(nptr+i) - '0') * (int)pow(10.0, len-i-1);
-    }
-
-    return Number;
-}
-
-
-
-long strtoL(const char *nptr);
-double strtof(const char *nptr);

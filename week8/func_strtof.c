@@ -1,30 +1,31 @@
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
+#include "strto.h"
 
 enum signs { Unsigned_Number, Positive, Negative };
 enum lengths { Length = 128};
 
-double str_to_double(const char *nptr);
+double strtof(const char *nptr);
 
 /* ptr_to_first_num指向+或-符号后的第一个数字 */
 double str_to_unsigned_double(const char *ptr_to_first_num, const char *decimal_point);
 
-int main(void)
-{
-    double Number = 0;
-    char str[Length] = {0};
+// int main(void)
+// {
+//     double Number = 0;
+//     char str[Length] = {0};
 
-    printf("请输入浮点数:\n");
-    scanf(" %s", str);
+//     printf("请输入浮点数:\n");
+//     scanf(" %s", str);
 
-    Number = str_to_double(str);
-    printf("%lf", Number);
+//     Number = strtof(str);
+//     printf("%lf", Number);
 
-    return 0;
-}
+//     return 0;
+// }
 
-double str_to_double(const char *nptr)
+double strtof(const char *nptr)
 {
     double Number = 0;
     int i = 0;
@@ -135,7 +136,7 @@ double str_to_unsigned_double(const char *ptr_to_first_num, const char *decimal_
         p_traverse < end
      */
     const char* Upper_limit = (decimal_point == NULL ? end : decimal_point);
-    while(p_traverse < Upper_limit)
+    for( ; p_traverse < Upper_limit; p_traverse++)
     {
         /* 比如123.456的整数部分:
             p指向'1'; N = 0*10 + '1'- '0';
@@ -144,7 +145,6 @@ double str_to_unsigned_double(const char *ptr_to_first_num, const char *decimal_
             结束
         */
         Number_int_part = Number_int_part * 10 + (*p_traverse-'0');
-        p_traverse++;
     }
 
     /* 如果有小数点(decimal_point != NULL),正常处理小数部分 */
@@ -153,7 +153,7 @@ double str_to_unsigned_double(const char *ptr_to_first_num, const char *decimal_
     {
         p_traverse = decimal_point + 1;
         Upper_limit = end;
-        while(*p_traverse != '\0' && p_traverse < Upper_limit)
+        for( ; *p_traverse != '\0' && p_traverse < Upper_limit; p_traverse++)
         {
             /* 比如123.456的整数部分:
                 p指向'4'; N = 0.0 + ('4'- '0') * pow(0.1, '4'距离小数点的位数 );
@@ -167,8 +167,6 @@ double str_to_unsigned_double(const char *ptr_to_first_num, const char *decimal_
             */
             Number_decimal_part = Number_decimal_part + 
             (*p_traverse - '0') * pow(0.1, p_traverse - decimal_point);
-            
-            p_traverse++;
         }
     }
 
