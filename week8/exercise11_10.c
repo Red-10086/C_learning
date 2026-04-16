@@ -42,7 +42,6 @@ int strtoi(const char *nptr);
 long strtoL(const char *nptr);
 double strtof(const char *nptr);
 
-
 int main(void)
 {
     char str[128];

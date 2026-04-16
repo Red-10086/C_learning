@@ -5,7 +5,8 @@
 enum signs { Unsigned_Number, Positive, Negative };
 
 int strtoi(const char *nptr);
-/* ptr_to_first_num指向+或-符号后的第一个数字 */
+
+/* ptr_to_first_num指向+或-符号后的第一个数字,只适用于处理纯数字字符串 */
 int str_to_unsigned(const char *ptr_to_first_num);
 
 int main(void)
@@ -76,20 +77,22 @@ int strtoi(const char *nptr)
     return Number;
 }
 
-/* ptr_to_first_num指向+或-符号后的第一个数字 */
+/* ptr_to_first_num指向+或-符号后的第一个数字,只适用于处理纯数字字符串 */
 int str_to_unsigned(const char *ptr_to_first_num)
 {
     int Number = 0;                 // 字符串对应整数
     int len = strlen(ptr_to_first_num);         // 不含符号位的string length
 
-    for(int i = 0; i < len ; i++)
+    while(*ptr_to_first_num != '\0')
     {
-        /* 累加:
-            i=0: Number = 0 * 10 + 1 = 1
-            i=1: Number = 1 * 10 + 2 = 12
-            i=2: Number = 12 * 10 + 3 = 123
-            i=3: Number = 123 * 10 + 4 = 1234 */
-        Number = Number * 10 + (ptr_to_first_num[i] - '0');
+        /* 累加:例如,对于"1234":
+            指向'1': Number = 0 * 10 + '1'-'0' = 1
+            指向'2': Number = 1 * 10 + '2'- '0' = 12
+            指向'3': Number = 12 * 10 + '3' - '0' = 123
+            指向'4': Number = 123 * 10 + '4' - '0' = 1234 
+            指向'\0':结束
+        */
+        Number = Number * 10 + (*ptr_to_first_num - '0');
     }
 
     return Number;
