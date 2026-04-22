@@ -2,7 +2,7 @@
 #include "my_struct_sort.h"
 #include <string.h>
 
-void sort_Name(Junior *arr_struct, int n);
+void sort_goods_name(Junior *arr_struct, int n);
 int should_Swap_string_Is_Not_Ascending(const char *u, const char *v);
 
 int main(void)
@@ -22,7 +22,7 @@ int main(void)
         printf("第%d个同学的名字:%-10s\n", i+1, arr[i].name);
     }
 
-    sort_Name(arr, student_Number);
+    sort_goods_name(arr, student_Number);
 
     // 排序后打印
     printf("排序后:\n");
@@ -35,7 +35,7 @@ int main(void)
 }
 
 // 按 姓名成员的首字母顺序, 为结构体数组内前n个结构体排序(按A-Z的升序)
-void sort_Name(Junior *arr_struct, int n)
+void sort_goods_name(Junior *arr_struct, int n)
 {
     // 首字母大写检查
     for(int i = 0; i < n; i++)

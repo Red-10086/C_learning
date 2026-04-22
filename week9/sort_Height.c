@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include "my_struct_sort.h"
 
 void sort_Height(Junior *arr_struct, int student_Number);
