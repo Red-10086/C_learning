@@ -22,7 +22,7 @@
 
 int main(void)
 {
-    Junior arr[student_Number] = {0};
+    junior arr[student_Number] = {0};
     for(int i = 0; i < student_Number; i++)
     {
         // name是数组名,会退化,不需要&

@@ -4,18 +4,19 @@
 enum Const_numbers { name_Len = 64 , student_Number = 5};
 enum Name_index { first, second, third };
 
-typedef struct student 
+typedef struct student
 {
     char name[name_Len];
     int height;
     float weight;
     long schols;
-} Junior;
+} junior;
 
 // 函数原型声明
-extern void sort_Name(Junior *arr, int n);
-extern void sort_Height(Junior *arr, int n);
-extern void swap_Junior(Junior *x, Junior *y);
+extern void sort_Name(junior *arr, int n);
+extern void sort_Height(junior *arr, int n);
+extern void swap_junior(junior *x, junior *y);
 extern int should_Swap_string_Is_Not_Ascending(const char *u, const char *v);
+extern void print_junior(junior *arr, int i);
 
 #endif

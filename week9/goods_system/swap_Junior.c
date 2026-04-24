@@ -2,12 +2,12 @@
 #include "my_struct_sort.h"
 #include <string.h>
 
-void swap_Junior(Junior *x, Junior* y);
+void swap_junior(junior *x, junior* y);
 
 // 交换两个结构体的所有成员(值)
-void swap_Junior(Junior *x, Junior* y)
+void swap_junior(junior *x, junior* y)
 {
-    Junior tmp = *x;
+    junior tmp = *x;
     *x = *y;
     *y = tmp;
 }

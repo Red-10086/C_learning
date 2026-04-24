@@ -2,12 +2,12 @@
 #include "my_struct_sort.h"
 #include <string.h>
 
-void sort_goods_name(Junior *arr_struct, int n);
+void sort_goods_name(junior *arr_struct, int n);
 int should_Swap_string_Is_Not_Ascending(const char *u, const char *v);
 
 int main(void)
 {
-    Junior arr[student_Number] = {0};
+    junior arr[student_Number] = {0};
     for(int i = 0; i < student_Number; i++)
     {
         // name是数组名,会退化,不需要&
@@ -35,7 +35,7 @@ int main(void)
 }
 
 // 按 姓名成员的首字母顺序, 为结构体数组内前n个结构体排序(按A-Z的升序)
-void sort_goods_name(Junior *arr_struct, int n)
+void sort_goods_name(junior *arr_struct, int n)
 {
     // 首字母大写检查
     for(int i = 0; i < n; i++)
@@ -58,7 +58,7 @@ void sort_goods_name(Junior *arr_struct, int n)
             // 如果(不是升序){就要交换}
             if( should_Swap_string_Is_Not_Ascending(arr_struct[j].name, arr_struct[j+1].name) )
             {
-                swap_Junior(&arr_struct[j], &arr_struct[j+1]);
+                swap_junior(&arr_struct[j], &arr_struct[j+1]);
             }
         }
     }

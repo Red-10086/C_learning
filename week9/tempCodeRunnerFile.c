@@ -7,4 +7,4 @@ typedef struct student
     int height;
     float weight;
     long schols;
-} Junior;
+} junior;

@@ -10,12 +10,12 @@ typedef struct student
     int height;
     float weight;
     long schols;
-} Junior;
+} junior;
 
 // 函数原型声明
-extern void sort_goods_name(Junior *arr, int n);
-extern void sort_Height(Junior *arr, int n);
-extern void swap_Junior(Junior *x, Junior *y);
+extern void sort_goods_name(junior *arr, int n);
+extern void sort_Height(junior *arr, int n);
+extern void swap_junior(junior *x, junior *y);
 extern int should_Swap_string_Is_Not_Ascending(const char *u, const char *v);
 
 #endif

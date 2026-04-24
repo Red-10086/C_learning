@@ -11,11 +11,11 @@ typedef struct student
     int height;
     float weight;
     long schols;
-} Junior;
+} junior;
 
 int main(void)
 {
-    Junior sanaka;
+    junior sanaka;
 
     /* sanaka.height等是算数类型对象而非指针,必须要给scanf传指针:&对象 */
     printf("请输入sanaka的名字:\n");        scanf("%s", sanaka.name);

@@ -22,7 +22,7 @@
 
 int main(void)
 {
-    Junior arr[student_Number] = {0};
+    junior arr[student_Number] = {0};
     for(int i = 0; i < student_Number; i++)
     {
         // name是数组名,会退化,不需要&
@@ -38,10 +38,7 @@ int main(void)
     printf("排序前:\n");
     for(int i = 0; i < student_Number; i++)
     {
-        printf("第%d个同学的名字:%-10s\t", i+1, arr[i].name);
-        printf("第%d个同学的身高(cm):%4d\t", i+1, arr[i].height);
-        printf("第%d个同学的体重(kg):%4.2f\t", i+1, arr[i].weight);
-        printf("第%d个同学的奖学金数额:%8ld\n", i+1, arr[i].schols);
+        print_junior(arr, i);
     }
     
     int choice = 0;
@@ -64,10 +61,7 @@ int main(void)
     printf("排序后:\n");
     for(int i = 0; i < student_Number; i++)
     {
-        printf("第%d个同学的名字:%-10s\t", i+1, arr[i].name);
-        printf("第%d个同学的身高(cm):%4d\t", i+1, arr[i].height);
-        printf("第%d个同学的体重(kg):%4.2f\t", i+1, arr[i].weight);
-        printf("第%d个同学的奖学金数额:%8ld\n", i+1, arr[i].schols);
+        print_junior(arr, i);
     }
     
     return 0;
