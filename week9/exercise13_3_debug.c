@@ -24,7 +24,7 @@ void sort_senior_height(senior *arr, int number)
     {
         for(int j = 0; j < number - i - 1; j++)
         {
-            // 隔离问题,逐步debug,发现问题在此:冒泡逻辑写错了,写丢了一个"+1"
+// 隔离问题,逐步debug,发现问题在此:冒泡逻辑写错了,写丢了一个"+1"
             // if(arr[j].height > arr[j].height)
             if(arr[j].height > arr[j+1].height)
             {
