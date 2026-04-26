@@ -35,7 +35,7 @@
 
 #include <stdio.h>
 
-enum {name_len = 128 , arr_len = 10};
+enum {name_len = 128 , arr_len = 10, filename_len = 128};
 
 typedef struct student
 {
@@ -59,8 +59,12 @@ int main(void)
     // 暂存读到的个人信息
     senior arr[arr_len] = {0};
 
+    char filename[filename_len] = {0};
+    printf("请输入你要打开的文件名:\n");
+    scanf("%127s", filename);
+
     // 只读模式打开文件hw.dat
-    FILE *fp = fopen("hw.dat", "r");
+    FILE *fp = fopen(filename, "r");
 
     if(fp == NULL)
     {
