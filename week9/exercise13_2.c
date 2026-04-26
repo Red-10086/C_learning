@@ -15,13 +15,12 @@ int main(void)
     char temp[str_len] = {0};
 
     // 从键盘输入文件名
-    // printf("请输入要->清空<-的文件名:\n");
-    // scanf("%127s", temp);
+    printf("请输入要->清空<-的文件名:\n");
+    scanf("%127s", temp);
     filename = temp;
 
     // 根据fopen返回值判断是否成功打开文件
-    // const char *filename = NULL;
-    // fp = fopen(filename, "w");
+    fp = fopen(filename, "w");
     
     if (fp == NULL)
     {
@@ -32,7 +31,7 @@ int main(void)
         printf("该文件存在,已清除文件内容\n");
         
         // int fclose(FILE *stream)
-        // fclose(fp);
+        fclose(fp);
     }
 
     return 0;
