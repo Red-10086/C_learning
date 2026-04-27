@@ -15,20 +15,14 @@
 #include <time.h>
 #include <stdio.h>
 
+enum {mood_len = 128};
+
 void get_data(const char *f);    // 获得并显示上一次运行时的日期和时间
 void put_data(const char *f);    // 写入本次运行时的日期和时间
 
-struct Tms{
-    int tm_year;
-    int tm_mon;
-    int tm_mday;
-    int tm_hour;
-    int tm_min;
-    int tm_sec;
-};
-
 int main(void)
 {
+    // 不可随意更改文件名,只写模式会清空文件原内容
     char data_file[] = "datetime.dat";
 
     get_data(data_file);
@@ -50,8 +44,10 @@ void get_data(const char *f)
     else
     {
         int year, mon, day, hour, min, sec;
-        fscanf(fp, "%d%d%d%d%d%d", &year, &mon, &day, &hour, &min, &sec);
-        fprintf(stdout, "上一次运行是在%d年%d月%d日%d时%d分%d秒", year, mon, day, hour, min, sec);
+        char mood[mood_len] = {0};
+        char tips[sizeof("心情")] = "心情";
+        fscanf(fp, "%d %d %d %d %d %d %s %s", &year, &mon, &day, &hour, &min, &sec, tips, mood);
+        fprintf(stdout, "上一次运行是在%d年%d月%d日%d时%d分%d秒,%s%s!!\n", year, mon, day, hour, min, sec, tips, mood);
         fclose(fp);
     }
 
@@ -74,10 +70,15 @@ void put_data(const char *f)
     }
     else
     {
+        char mood[mood_len] = {0};
+        char tips[sizeof("心情")] = "心情";
+        printf("当前的心情:\n");
+        scanf("%127s", mood);
+        
         // 依次写入年月日时分秒
-        fprintf(fp, "%d %d %d %d %d %d"
+        fprintf(fp, "%d %d %d %d %d %d %s %s"
             , time_p->tm_year + 1900, time_p->tm_mon + 1, time_p->tm_mday,
-             time_p->tm_hour, time_p->tm_min, time_p->tm_sec
+             time_p->tm_hour, time_p->tm_min, time_p->tm_sec, tips, mood
         );
 
         fclose(fp);

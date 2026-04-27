@@ -60,7 +60,7 @@ int main(void)
     senior arr[arr_len] = {0};
 
     char filename[filename_len] = {0};
-    printf("请输入你要打开的文件名:\n");
+    printf("请输入你要读取的文件名:\n");
     scanf("%127s", filename);
 
     // 只读模式打开文件hw.dat
