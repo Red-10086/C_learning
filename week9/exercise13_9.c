@@ -1,5 +1,5 @@
 /* 
-    练习13-8 请参考代码13-7编写一个程序,在界面上显示文件内容的同时,
+    练习13-8 请参考代码13-7编写一个程序,将所有英文小写字母转换为大写字母的同时,
     执行复制操作(即同时输出到目标文件流和标准输出流).
 
     思路:三个读写头,一个只读,两个只写,仿照书上那样,用int ch做中间变量
@@ -27,7 +27,9 @@ int main(void)
     printf("请输入要复制的目标文件名:\n");
     scanf("%s", des_filename);
 
-    src_fp = fopen(src_filename, "r");
+    // 读写模式
+    src_fp = fopen(src_filename, "r+");
+    // 只写模式
     des_fp = fopen(des_filename, "w");
 
     if(src_fp == NULL)
@@ -49,10 +51,32 @@ int main(void)
             // 只要没读到结束字符,就继续
             if(ch != EOF)
             {
-                // 向目标文件流写字符
+                // 如果遇到小写字母,转大写
+                if(ch >= 'a' && ch <= 'z')
+                {
+                    ch = ch + 'A' - 'a';
+                    // 1读写头会"滑动,必须前移才能回到原字符
+                    // // 两次清空缓冲区,保护文件
+                    // 2fseek(src_fp, 0, SEEK_CUR);
+                    // fputc(ch, src_fp);
+                    // fseek(src_fp, 0, SEEK_CUR);
+                    // 写入原文件
+                    // 3搞了半天原来是你
+                    // ch = ch + 'a' - 'A';
+                    // 4fseek(src_fp, -1, SEEK_CUR);
+                    // fputc(ch, src_fp);
+                    // fseek(src_fp, -1, SEEK_CUR);
+                    // 看来更新模式,原地更换都很难做到.
+                    
+                    // 回到原字符
+                    fseek(src_fp, -1, SEEK_CUR);
+                    // 覆写
+                    fputc(ch, src_fp);
+                    // 清空缓冲区
+                    fseek(src_fp, 0, SEEK_CUR);
+                }
+                // 写入目标文件
                 fputc(ch, des_fp);
-                // 向标准输出流写字符
-                fputc(ch, stdout);
             }
             // 读到了结束字符就结束
             else
