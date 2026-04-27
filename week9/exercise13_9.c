@@ -57,13 +57,13 @@ int main(void)
                     ch = ch + 'A' - 'a';
                     // 1读写头会"滑动,必须前移才能回到原字符
                     // // 两次清空缓冲区,保护文件
-                    // 2fseek(src_fp, 0, SEEK_CUR);
+                    // fseek(src_fp, 0, SEEK_CUR);
                     // fputc(ch, src_fp);
                     // fseek(src_fp, 0, SEEK_CUR);
                     // 写入原文件
-                    // 3搞了半天原来是你
+                    // 2搞了半天原来是你
                     // ch = ch + 'a' - 'A';
-                    // 4fseek(src_fp, -1, SEEK_CUR);
+                    // 3fseek(src_fp, -1, SEEK_CUR);
                     // fputc(ch, src_fp);
                     // fseek(src_fp, -1, SEEK_CUR);
                     // 看来更新模式,原地更换都很难做到.
