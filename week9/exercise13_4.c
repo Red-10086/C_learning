@@ -85,7 +85,7 @@ int main(void)
         // 结束时关闭文件
         fclose(fp);
     }
-
+    fp = NULL;
     
     return 0;
 }

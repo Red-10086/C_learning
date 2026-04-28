@@ -34,6 +34,7 @@ int main(void)
 
         fclose(fp);
     }
+    fp = NULL;
 
     printf("共有%d个字符", number);
 

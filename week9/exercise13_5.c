@@ -50,6 +50,7 @@ void get_data(const char *f)
         fprintf(stdout, "上一次运行是在%d年%d月%d日%d时%d分%d秒,%s%s!!\n", year, mon, day, hour, min, sec, tips, mood);
         fclose(fp);
     }
+    fp = NULL;
 
 
 }
@@ -83,4 +84,5 @@ void put_data(const char *f)
 
         fclose(fp);
     }
+    fp = NULL;
 }

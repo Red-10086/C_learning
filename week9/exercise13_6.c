@@ -40,6 +40,7 @@ int main(void)
 
         fclose(fp);
     }
+    fp = NULL;
 
     printf("共有%d行", number);
 

@@ -34,6 +34,7 @@ int main(void)
         // int fclose(FILE *stream)
         fclose(fp);
     }
+    fp = NULL;
     
     return 0;
 }

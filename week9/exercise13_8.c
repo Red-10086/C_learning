@@ -65,7 +65,8 @@ int main(void)
         fclose(src_fp);
         fclose(des_fp);
     }
-
+    src_fp = NULL;
+    des_fp = NULL;
 
     return 0;
 }

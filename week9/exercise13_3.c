@@ -94,6 +94,7 @@ int main(void)
         // 如成功打开文件,最终关闭文件hw.dat
         fclose(fp);
     }
+    fp = NULL;
 
     // 读取并暂存完成,排序前打印
     printf("排序前:\n");
