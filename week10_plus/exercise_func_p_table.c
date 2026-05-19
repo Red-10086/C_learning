@@ -70,7 +70,7 @@ int main(void)
         {
             printf("输入有误,请重试\n");
         }
-        // 如果读到了整数,但是读到的下标 choice > arr_func长度 或 choice < 0
+        // 如果读到了整数,但是读到的下标 choice > func_table长度(向右超表) 或 choice < 0(向左超表)
         else if(choice < 0 || choice >= sizeof(func_table)/sizeof(func_table[0]))
         {
             printf("输入有误,请重试\n");
