@@ -6,16 +6,16 @@
 #include <stdlib.h>
 #include <time.h>
 
-enum {len = 10};
+enum {len_1 = 10};
 
 int main(void)
 {
-    double arr_1[len] = {0};
-    double arr_2[len] = {0};
+    double arr_1[len_1] = {0};
+    double arr_2[len_1] = {0};
 
     // 设定种子(初态)
     srand((int)time(NULL));
-    for(int i = 0; i < len; i++)
+    for(int i = 0; i < len_1; i++)
     {
         // 生成10个随机浮点数
         // 第一次调用是初态(srand设定),后续每次调用都是新的状态-新随机数
@@ -33,7 +33,7 @@ int main(void)
     }
     else
     {
-        fwrite(arr_1, sizeof(arr_1[0]), len, fp);
+        fwrite(arr_1, sizeof(arr_1[0]), len_1, fp);
         
         // 使用完毕,关闭文件
         fclose(fp);
@@ -48,8 +48,8 @@ int main(void)
     }
     else
     {
-        fread(arr_2, sizeof(arr_2[0]), len, fp);
-        for(int i = 0; i < len; i++)
+        fread(arr_2, sizeof(arr_2[0]), len_1, fp);
+        for(int i = 0; i < len_1; i++)
         {
             printf("%23.21lf\n", arr_2[i]);
         }

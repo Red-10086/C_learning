@@ -5,13 +5,13 @@
 
 #include <stdio.h>
 
-enum {len = 128};
+enum {len_1 = 128};
 
 int main(void)
 {
     char temp = 0;
-    char filename_src[len] = {0};
-    char filename_des[len] = {0};
+    char filename_src[len_1] = {0};
+    char filename_des[len_1] = {0};
 
     printf("请输入要复制的文件名:\n");
     scanf("%127s", filename_src);

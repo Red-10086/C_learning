@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <time.h>
 
-enum {len = 128};
+enum {len_1 = 128};
 
 typedef struct {
     int tm_year;

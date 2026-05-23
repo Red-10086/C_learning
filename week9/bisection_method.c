@@ -1,13 +1,13 @@
 #include <stdio.h>
 
-enum { len = 16 };
+enum { len_1 = 16 };
 
 int *bisection(int *s, int keyword);
 
 int main(void)
 {
-    int arr[len] = {0};
-    for(int i = 0; i < len; i++)
+    int arr[len_1] = {0};
+    for(int i = 0; i < len_1; i++)
     {
         arr[i] = 3 * i;
     }
@@ -31,12 +31,12 @@ int *bisection(int *s, int keyword)
     int number = 0;
     int found_it = 0;
     int *left = s;
-    int *right = s+len-1;
+    int *right = s+len_1-1;
     int *mid = left + (right - left)/2 ;
     int *des = NULL;
 
 
-    for(int i = 0; found_it != 1 && i < len; i++/* , number++ */)
+    for(int i = 0; found_it != 1 && i < len_1; i++/* , number++ */)
     {
         // 找到了-目标地址des就是mid
         if( keyword == *mid )
